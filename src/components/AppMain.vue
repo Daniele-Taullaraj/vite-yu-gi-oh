@@ -15,7 +15,8 @@ export default {
 
     },
     mounted() {
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0").then(risultato => {
+        // modifico il link creando 35 card e poi con un v-if al componente single card genero solo quelle dal 15 al 35
+        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=35&offset=0").then(risultato => {
             risultato.data.data.forEach(element => {
                 this.store.carte.push(element)
             });
@@ -45,8 +46,8 @@ export default {
                     <div class="bg-dark text-white p-3">Found 39 cards</div>
 
                     <div class="row m-0 gap-3">
-                        <div v-for="element in store.cardList" class="card border-0 p-0">
-                            <SingleCard :card="element" />
+                        <div v-for="element, index in store.carte" class="card border-0 p-0">
+                            <SingleCard v-if="index >= 15 && index <= 35" :card="element" />
                         </div>
                     </div>
 
