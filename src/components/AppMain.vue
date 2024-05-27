@@ -15,7 +15,13 @@ export default {
 
     },
     mounted() {
-    }
+        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0").then(risultato => {
+            risultato.data.data.forEach(element => {
+                this.store.carte.push(element)
+            });
+            console.log(this.store.carte)
+        });
+    },
 }
 </script>
 
@@ -39,7 +45,7 @@ export default {
                     <div class="bg-dark text-white p-3">Found 39 cards</div>
 
                     <div class="row m-0 gap-3">
-                        <div v-for="element in store.cards" class="card border-0 p-0">
+                        <div v-for="element in store.cardList" class="card border-0 p-0">
                             <SingleCard :card="element" />
                         </div>
                     </div>

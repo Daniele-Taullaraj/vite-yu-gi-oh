@@ -2,7 +2,7 @@
 import { reactive } from 'vue';
 
 const iMieiDati = reactive({
-    cards: [
+    cardList: [
         {
             name: "\"A\" Cell Breeding Device",
             type: "Spell Card",
@@ -173,7 +173,8 @@ const iMieiDati = reactive({
                     },
                 ],
         },
-    ]
+    ],
+    carte: []
 
 });
 
