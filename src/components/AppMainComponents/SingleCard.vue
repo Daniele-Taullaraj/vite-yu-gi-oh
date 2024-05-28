@@ -19,9 +19,9 @@ export default {
 <template>
 
     <img :src="card.card_images[0].image_url" alt="" class="w-100">
-    <div class="card-bg text-white text-center p-3 h-100 d-flex flex-column justify-content-between">
+    <div class="card-bg text-white text-center p-3 mb-3 h-100 d-flex flex-column justify-content-between">
         <h6>{{ card.name }}</h6>
-        <span class="text-dark">{{ card.race }}</span>
+        <span class="text-dark">{{ card.archetype }}</span>
     </div>
 
 </template>
