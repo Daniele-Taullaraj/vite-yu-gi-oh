@@ -16,9 +16,11 @@ export default {
   },
   methods: {
     getCharacters() {
-      axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=35&offset=0").then(risultato => {
+      this.store.contatore = 0
+      axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0").then(risultato => {
         risultato.data.data.forEach(element => {
           this.store.carte.push(element)
+          this.store.contatore++
         });
       });
     },
